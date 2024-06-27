@@ -1,0 +1,39 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="row mt-5">
+  <div class="col-lg-4 offset-lg-5">
+    <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <h4 class="card-title">{{ operacion }} ScapeRoom</h4>
+        
+        <form [formGroup]="form" (ngSubmit)="addScapeRoom()">
+          <input formControlName="nombre" type="text" class="form-control mt-4" placeholder="Escribe nombre del ScapeRoom" id="inputDefault">  
+          <input formControlName="tipo" type="text" class="form-control mt-4" placeholder="Escribe la temática" id="inputDefault">  
+          
+          <div class="form-group">
+            <input formControlName="nota" type="number" class="form-control mt-4" placeholder="¿Qué nota le pones?" id="inputDefault">
+            <div *ngIf="form.controls['nota'].invalid && (form.controls['nota'].dirty || form.controls['nota'].touched)" class="text-danger">
+              <div *ngIf="form.controls['nota'].errors?.['required']">
+                La nota es obligatoria.
+              </div>
+              <div *ngIf="form.controls['nota'].errors?.['min'] || form.controls['nota'].errors?.['max']">
+                La nota tiene que estar comprendida entre 0 y 10.
+              </div>
+            </div>
+          </div>
+          
+          <input formControlName="ubicacion" type="text" class="form-control mt-4 mb-4" placeholder="Escribe la ubicación" id="inputDefault">
+          
+          <div class="row mt-2 text-center">
+            <div class="col-lg-6">
+              <button [disabled]="form.invalid" type="submit" class="btn btn-secondary">Aceptar</button>
+            </div>
+            <div class="col-lg-6">
+              <button routerLink="/lista" type="button" class="btn btn-light">Volver</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

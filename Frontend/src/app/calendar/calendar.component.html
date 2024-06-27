@@ -1,0 +1,47 @@
+<div #eventModal class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">New Event</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="event-title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="event-title" [(ngModel)]="newEvent.title" name="title" placeholder="Enter event title">
+            </div>
+            <div class="mb-3">
+              <label for="event-start" class="form-label">Start Date</label>
+              <input type="date" class="form-control" id="event-start" [(ngModel)]="newEvent.startDate" name="startDate">
+            </div>
+            <div class="mb-3">
+              <label for="event-start-time" class="form-label">Start Time</label>
+              <input type="time" class="form-control" id="event-start-time" [(ngModel)]="newEvent.startTime" name="startTime">
+            </div>
+            <div class="mb-3">
+              <label for="event-end" class="form-label">End Date</label>
+              <input type="date" class="form-control" id="event-end" [(ngModel)]="newEvent.endDate" name="endDate">
+            </div>
+            <div class="mb-3">
+              <label for="event-end-time" class="form-label">End Time</label>
+              <input type="time" class="form-control" id="event-end-time" [(ngModel)]="newEvent.endTime" name="endTime">
+            </div>
+            <div class="mb-3">
+              <label for="event-type" class="form-label">Type</label>
+              <input type="text" class="form-control" id="event-type" [(ngModel)]="newEvent.type" name="type" placeholder="Enter event type">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+          <button type="button" class="btn btn-primary" (click)="saveEvent()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="calendar-container mt-4 mb-4">
+    <full-calendar #fullcalendar class="full-calendar" [options]="calendarOptions"></full-calendar>
+  </div>
+  

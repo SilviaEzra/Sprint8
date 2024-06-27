@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/ubicacion/ubicacion.component.css"],
+  "sourcesContent": [".map-container {\r\n  display: flex;\r\n  height: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.mapboxgl-map {\r\n  height: 100%;\r\n  width: 100%;\r\n  margin: 0 auto;\r\n}\r\n"],
+  "mappings": ";AAAA,CAAC;AACC,WAAS;AACT,UAAQ;AACR,SAAO;AACT;AAEA,CAAC;AACC,UAAQ;AACR,SAAO;AACP,UAAQ,EAAE;AACZ;",
+  "names": []
+}

@@ -1,0 +1,31 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { AddeditComponent } from '../addedit/addedit.component'; // Este import no es necesario aquí
+import { ServicioService } from '../servicio.service';
+import { Interface } from '../interface'; // Asegúrate que la ruta sea correcta
+
+@Component({
+  selector: 'app-list',
+  standalone: true,
+  imports: [CommonModule, RouterLink, AddeditComponent],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css']
+})
+export class ListComponent implements OnInit {
+  listScapeRoom: Interface[] = [];
+
+  constructor(private _servicioService: ServicioService) {}
+
+  ngOnInit(): void {
+    this.getListProducts();
+  }
+
+  getListProducts() {
+    this._servicioService.getListProducts().subscribe((data) => {
+      this.listScapeRoom = data;
+    }, error => {
+      console.error('Error fetching products:', error);
+    });
+  }
+}

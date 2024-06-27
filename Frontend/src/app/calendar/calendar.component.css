@@ -1,0 +1,10 @@
+.calendar-container {
+    max-width: 800px;
+    margin: 0 auto; /* Centrará el calendario */
+    
+  }
+  
+  .full-calendar {
+    max-width: 100%; /* Asegura que el calendario no exceda el contenedor */
+  }
+  

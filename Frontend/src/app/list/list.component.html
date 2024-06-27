@@ -1,0 +1,30 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container">
+  <div class="title mt-4 mb-4">
+    <h4>Listado de ScapeRoms</h4>
+    <button type="button" class="btn btn-info" [routerLink]="['/add']" routerLinkActive="router-link-active">Agregar</button>
+  </div>
+  <table class="table table-hover rounded">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Ubicación</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listScapeRoom" class="table-light">
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.tipo }}</td>
+        <td>{{ item.nota }}</td>
+        <td>{{ item.ubicacion }}</td>
+        <td>
+          <button routerLink="/edit/{{ item.id }}" type="button" class="btn btn-info btn-sm">Editar</button>
+          <button (click)="deleteProduct(item.id!)" type="button" class="btn btn-secondary btn-sm ms-2">Quitar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
